@@ -33,7 +33,7 @@ export const Register = () => {
   // handling the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
+    // console.log(user);
     try {
       const response = await fetch(URL, {
         method: "POST",
