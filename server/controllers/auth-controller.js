@@ -10,7 +10,7 @@ const home = async (req, res) => {
     res
       .status(200)
       .send(
-        "Welcome to world best mern series by thapa technical using router "
+        "Welcome to world best mern series by Mern Admin using router "
       );
   } catch (error) {
     console.log(error);

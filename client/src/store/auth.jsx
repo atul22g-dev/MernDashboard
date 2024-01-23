@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
     userAuthentication();
   }, []);
 
-  //please subs to thapa technical channel .. also world best js course is coming soon
+  //please subs to Mern Admin channel .. also world best js course is coming soon
 
   return (
     <AuthContext.Provider
