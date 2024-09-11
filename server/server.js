@@ -9,26 +9,16 @@ const adminRoute = require("./router/admin-router");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
-// let's tackle cors
-const corsOptions = {
-  // origin: "http://localhost:5173",
-  origin: (origin, callback) => {
-    // Check if the origin is allowed
-    const allowedOrigins = [
-      "http://localhost:5173",
-    ];
-    const isAllowed = allowedOrigins.includes(origin);
-    callback(null, isAllowed ? origin : false);
-  },
-  methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(cors('*'));
 
 app.use(express.json());
 
 // Mount the Router: To use the router in your main Express app, you can "mount" it at a specific URL prefix
+app.get("/", (req, res) => {
+    return res.send("Welcome to Node js, express js in Docker");
+});
+
+
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
 app.use("/api/data", serviceRoute);
