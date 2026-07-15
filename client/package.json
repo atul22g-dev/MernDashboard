@@ -2,7 +2,7 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://merndashboard-n4db.onrender.com/",
+  "homepage": "https://mern-dashboard-atul22g-dev.vercel.app//",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
