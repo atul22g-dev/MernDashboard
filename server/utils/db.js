@@ -1,17 +1,21 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-// const URI = "mongodb://127.0.0.1:27017/mern_admin";
-// mongoose.connect(URI);
-const URI = process.env.MONGODB_URI;
+const DB_URI = process.env.MONGODB_URI;
 
-const connectDb = async () => {
+const connectDB = async () => {
+  if (!DB_URI) {
+    console.error('MongoDB connection string (DB) is not set in environment variables');
+    process.exit(1);
+  }
+
   try {
-    await mongoose.connect(URI);
-    console.log("connection successful to DB");
-  } catch (error) {
-    console.error("database connection failed");
-    process.exit(0);
+    const conn = await mongoose.connect(DB_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    return conn;
+  } catch (err) {
+    console.error('Failed to connect to MongoDB', err);
+    process.exit(1);
   }
 };
 
-module.exports = connectDb;
+module.exports = connectDB;
